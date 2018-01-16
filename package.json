@@ -1,0 +1,139 @@
+{
+  "name": "SodaWallet",
+  "version": "1.1.2",
+  "description": "Wallet for Soda Token (ZEN)",
+  "main": "app/main.js",
+  "scripts": {
+    "postinstall": "electron-builder install-app-deps",
+    "start": "npm install && electron ./app",
+    "pack": "build --dir",
+    "dist": "build",
+    "publish": "publish",
+    "release": "npm run dist && npm run publish"
+  },
+  "homepage": "https://github.com/BinaryOmen/soda",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BinaryOmen/soda.git"
+  },
+  "bugs": {
+    "url": "https://github.com/BinaryOmen/wallets/issues"
+  },
+  "updater": {
+    "url": "https://raw.githubusercontent.com/BinaryOmen/wallets/master/updates.json"
+  },
+  "keywords": [
+    "zen",
+    "sodatoken",
+    "equihash",
+    "wallet",
+    "windows",
+    "mac",
+    "osx",
+    "linux",
+    "desktop",
+    "electron"
+  ],
+  "author": "ZEN team <lukas@zensystem.io>",
+  "contributors": [
+    {
+      "name": "@lukas",
+      "email": "lukas@zensystem.io"
+    },
+    {
+      "name": "@nonghost",
+      "email": "neduchal@gmail.com"
+    },
+    {
+      "name": "@k4chn1k",
+      "email": "k4chn1k@gmail.com"
+    },
+    {
+      "name": "@woky",
+      "email": "nechtom@gmail.com"
+    },
+    {
+      "name": "@gsfakianakis",
+      "email": "g.e.sfakianakis@gmail.com"
+    },
+    {
+      "name": "@Tigger",
+      "email": "-"
+    }
+  ],
+  "license": "MIT",
+  "engines": {
+    "node": ">=6.0"
+  },
+  "build": {
+    "appId": "io.zensystem.soda",
+    "mac": {
+      "category": "public.app-category.finance",
+      "type": "distribution"
+    },
+    "dmg": {
+      "title": "${productName} ${version}",
+      "icon": "build/icon.icns",
+      "backgroundColor": "#888888",
+      "contents": [
+        {
+          "x": 110,
+          "y": 150
+        },
+        {
+          "x": 240,
+          "y": 150,
+          "type": "link",
+          "path": "/Applications"
+        }
+      ]
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ],
+      "icon": "build/",
+      "category": "Office"
+    },
+    "win": {
+      "target": "Squirrel",
+      "icon": "build/icon.ico"
+    }
+  },
+  "dependencies": {
+    "axios": "^0.17.1",
+    "bip32-utils": "^0.11.0",
+    "bitcoinjs-lib": "^3.3.1",
+    "electron-debug": "^1.5.0",
+    "electron-download": "^4.1.0",
+    "electron-packager": "^10.1.1",
+    "electron-simple-updater": "^1.2.3",
+    "electron-tabs": "^0.9.0",
+    "errors": "^0.3.0",
+    "fs-extra": "^5.0.0",
+    "immutable": "^3.8.2",
+    "jspdf": "^1.3.5",
+    "luxon": "^0.2.12",
+    "node-fetch": "^2.0.0-alpha.9",
+    "password-hash": "^1.2.2",
+    "qrcode": "^1.2.0",
+    "request": "^2.83.0",
+    "sql.js": "^0.4.0",
+    "sodatokenjs": "^1.1.9-a"
+  },
+  "devDependencies": {
+    "ajv": "^5.5.1",
+    "coveralls": "^3.0.0",
+    "devtron": "^1.4.0",
+    "electron": "^1.8.1",
+    "electron-builder": "19.49.4",
+    "electron-builder-squirrel-windows": "19.49.4",
+    "flow-bin": "^0.62.0"
+  },
+  "optionalDependencies": {
+    "electron-installer-debian": "^0.7.0",
+    "electron-installer-dmg": "^0.2.1",
+    "electron-installer-windows": "^0.2.0"
+  }
+}
